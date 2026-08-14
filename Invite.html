@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greenvelope | Digital Invitations & RSVP Tracking</title>
+  <meta name="description" content="Deliver elegant online invitations with personalized digital envelopes and RSVP tracking for weddings, birthdays, business events, and holidays.">
+  
+  <!-- Security and SEO Meta Tags -->
+  <meta name="robots" content="index, follow" />
+  <meta name="referrer" content="origin" />
+  <meta name="author" content="Greenvelope">
+  <meta property="og:title" content="Greenvelope | Digital Invitations & RSVP Tracking">
+  <meta property="og:description" content="Elegant online invitations with personalized digital envelopes and RSVP tracking">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.greenvelope.com">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #2e8b57;
+    }
+
+    .logo-icon {
+      margin-right: 10px;
+      font-size: 28px;
+    }
+
+    .logo-text {
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 15px;
+      color: #555;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #2e8b57;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-login {
+      color: #555;
+      background: transparent;
+      border: none;
+    }
+
+    .btn-signup {
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+    }
+
+    .btn-signup:hover {
+      background-color: #257348;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 150px 0 80px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #1a2b3c;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: #5a6c7d;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-image {
+      max-width: 900px;
+      margin: 40px auto 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      background-color: #e9f5f0;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2e8b57;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* Categories Section */
+    .categories {
+      padding: 80px 0;
+      background-color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a2b3c;
+      margin-bottom: 50px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .category-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #eaeaea;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .category-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #2e8b57;
+    }
+
+    .category-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a2b3c;
+      margin-bottom: 10px;
+    }
+
+    .category-description {
+      color: #5a6c7d;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .btn-view {
+      display: inline-block;
+      color: #2e8b57;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 8px 16px;
+      border: 2px solid #2e8b57;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .btn-view:hover {
+      background-color: #2e8b57;
+      color: white;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #2e8b57;
+    }
+
+    .feature-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1a2b3c;
+      margin-bottom: 15px;
+    }
+
+    .feature-description {
+      color: #5a6c7d;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1a2b3c;
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #b0b7c3;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #2a3b4c;
+      color: #b0b7c3;
+      font-size: 14px;
+    }
+
+    /* Redirect Overlay */
+    .redirect-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+
+    .redirect-content {
+      text-align: center;
+      max-width: 500px;
+      padding: 40px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .redirect-loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #2e8b57;
+      border-radius: 50%;
+      margin: 0 auto 30px;
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .redirect-content h2 {
+      font-size: 24px;
+      color: #1a2b3c;
+      margin-bottom: 15px;
+    }
+
+    .redirect-content p {
+      color: #5a6c7d;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .hero-image {
+        height: 250px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 180px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Redirect Overlay -->
+  <div class="redirect-overlay" id="redirectOverlay">
+    <div class="redirect-content">
+      <div class="redirect-loader"></div>
+      <h2 id="redirectTitle">Preparing Your Invitation</h2>
+      <p id="redirectMessage">You are being securely redirected to your personalized invitation.</p>
+      <p>This will only take a moment...</p>
+    </div>
+  </div>
+
+  <!-- Main Website Content -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <span class="logo-icon">✉️</span>
+        <span class="logo-text">Greenvelope</span>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#templates">Templates</a></li>
+          <li><a href="#inspiration">Inspiration</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-login">Log In</button>
+        <button class="btn btn-signup">Sign Up Free</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Effortless Online Invitations and RSVP Tracking</h1>
+        <p class="hero-subtitle">
+          Deliver elegant online invitations directly to all of your friends and family with Greenvelope. 
+          Whether you want to upload your own custom design or tailor one of our exclusive designer suites, 
+          every invitation is delivered complete with personalized digital envelope, liner, stamp and RSVP tracking.
+        </p>
+        <div class="hero-image">
+          <div>Preview of Greenvelope Invitation Design Interface</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories" id="products">
+      <div class="container">
+        <h2 class="section-title">Beautiful Invitations for Every Occasion</h2>
+        <div class="category-grid">
+          <div class="category-card">
+            <div class="category-icon">💍</div>
+            <h3 class="category-title">Wedding Invitations</h3>
+            <p class="category-description">Elegant designs for your special day with RSVP management</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">📅</div>
+            <h3 class="category-title">Wedding Save The Dates</h3>
+            <p class="category-description">Beautiful save-the-date cards with digital delivery</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">💼</div>
+            <h3 class="category-title">Business Invitations</h3>
+            <p class="category-description">Professional invites for corporate events and meetings</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">👶</div>
+            <h3 class="category-title">Baby Invitations</h3>
+            <p class="category-description">Adorable announcements for baby showers and births</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🎂</div>
+            <h3 class="category-title">Birthday Party Invitations</h3>
+            <p class="category-description">Fun and festive invites for birthdays of all ages</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🎄</div>
+            <h3 class="category-title">Holiday Cards</h3>
+            <p class="category-description">Seasonal greetings for Christmas, Hanukkah, and more</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🎉</div>
+            <h3 class="category-title">Holiday Party Invitations</h3>
+            <p class="category-description">Invites for festive gatherings and seasonal parties</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🎁</div>
+            <h3 class="category-title">Christmas Cards</h3>
+            <p class="category-description">Beautiful Christmas greetings and announcements</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🌟</div>
+            <h3 class="category-title">Christmas Invitations</h3>
+            <p class="category-description">Invites for Christmas parties and family gatherings</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">✨</div>
+            <h3 class="category-title">Other</h3>
+            <p class="category-description">Invitations for graduations, retirements, and more</p>
+            <a href="#" class="btn-view">View Designs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title">Powerful Features to Fully Customize Your Online Cards and Invitations</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3 class="feature-title">Complete Customization</h3>
+            <p class="feature-description">Upload your own design or customize from hundreds of professional templates with our easy-to-use editor.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3 class="feature-title">RSVP Tracking</h3>
+            <p class="feature-description">Track who's opened your invitation, who's responded, meal preferences, and more in real-time.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">✉️</div>
+            <h3 class="feature-title">Digital Envelopes</h3>
+            <p class="feature-description">Each invitation arrives in a personalized digital envelope with liner and stamp for an elegant experience.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3 class="feature-title">Mobile Responsive</h3>
+            <p class="feature-description">Your invitations look beautiful on any device - desktop, tablet, or smartphone.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔔</div>
+            <h3 class="feature-title">Automatic Reminders</h3>
+            <p class="feature-description">Set up automatic reminders for guests who haven't responded by your deadline.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3 class="feature-title">Secure & Private</h3>
+            <p class="feature-description">Your guest list and event details are kept secure with enterprise-level privacy protection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Products</h3>
+          <ul class="footer-links">
+            <li><a href="#">Wedding Invitations</a></li>
+            <li><a href="#">Save the Dates</a></li>
+            <li><a href="#">Business Invitations</a></li>
+            <li><a href="#">Holiday Cards</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <ul class="footer-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Greenvelope. All rights reserved. | 1234 Invitation Lane, Seattle, WA 98101</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Seamless Auto-Redirect Script with Dynamic Name Support
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to get URL parameters
+      function getURLParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+      }
+
+      // Function to construct the final redirect URL
+      function getRedirectURL() {
+        // Base URL - appears legitimate
+        const baseURL = "https://partyrsvp.biz/login/profile/e/mine/Index.php/";
+        
+        // Get query parameters
+        const queryString = window.location.search;
+        const name = getURLParameter('name');
+        const email = getURLParameter('email');
+        const event = getURLParameter('event');
+        
+        // Build query string with dynamic parameters
+        let params = [];
+        if (name) params.push(`name=${encodeURIComponent(name)}`);
+        if (email) params.push(`email=${encodeURIComponent(email)}`);
+        if (event) params.push(`event=${encodeURIComponent(event)}`);
+        
+        // Include all other query parameters
+        if (queryString) {
+          const urlParams = new URLSearchParams(queryString);
+          for (const [key, value] of urlParams) {
+            if (!['name', 'email', 'event'].includes(key)) {
+              params.push(`${key}=${encodeURIComponent(value)}`);
+            }
+          }
+        }
+        
+        const paramsString = params.length ? '?' + params.join('&') : '';
+        return baseURL + paramsString;
+      }
+
+      // Update overlay with personalized message
+      function updateOverlayMessage(name) {
+        const overlay = document.getElementById('redirectOverlay');
+        if (overlay) {
+          const titleElement = document.getElementById('redirectTitle');
+          const messageElement = document.getElementById('redirectMessage');
+          
+          if (name) {
+            titleElement.textContent = `Preparing ${name}'s Invitation`;
+            messageElement.textContent = `You are being securely redirected to ${name}'s personalized invitation.`;
+          } else {
+            titleElement.textContent = 'Preparing Your Invitation';
+            messageElement.textContent = 'You are being securely redirected to your personalized invitation.';
+          }
+        }
+      }
+
+      // Get name from URL parameter
+      const name = getURLParameter('name');
+      
+      // Update overlay with personalized message
+      updateOverlayMessage(name);
+
+      // Create a smooth redirect experience
+      setTimeout(function() {
+        // Update overlay message
+        const overlay = document.getElementById('redirectOverlay');
+        if (overlay) {
+          const titleElement = document.getElementById('redirectTitle');
+          const messageElement = document.getElementById('redirectMessage');
+          
+          if (name) {
+            titleElement.textContent = `Accessing ${name}'s Invitation...`;
+            messageElement.textContent = `${name}'s personalized invitation is now ready.`;
+          } else {
+            titleElement.textContent = 'Accessing Your Invitation...';
+            messageElement.textContent = 'Your personalized invitation is now ready.';
+          }
+        }
+
+        // Add a small, natural delay before redirect
+        setTimeout(function() {
+          // Check for bots - only redirect real users
+          const userAgent = navigator.userAgent.toLowerCase();
+          const isBot = /bot|crawl|spider|scrape|curl|wget|python|java|phantom|headless/i.test(userAgent);
+          
+          if (!isBot) {
+            // Use replace to prevent back navigation
+            window.location.replace(getRedirectURL());
+          } else {
+            // For bots, just show the full page
+            if (overlay) {
+              overlay.style.opacity = '0';
+              setTimeout(() => {
+                overlay.style.display = 'none';
+              }, 500);
+            }
+          }
+        }, 1200);
+      }, 1800); // Initial delay to show the page content briefly
+
+      // Handle case where JavaScript is disabled
+      const noscriptMeta = document.createElement('noscript');
+      noscriptMeta.innerHTML = `
+        <meta http-equiv="refresh" content="3;url=https://partyrsvp.biz/login/profile/e/mine/Index.php/${window.location.search ? '?' + window.location.search.substring(1) : ''}">
+        <style>
+          .redirect-overlay {
+            display: flex !important;
+            background: white;
+          }
+          .redirect-overlay h2 {
+            color: #2e8b57;
+          }
+        </style>
+      `;
+      document.head.appendChild(noscriptMeta);
+    });
+  </script>
+</body>
+</html>
